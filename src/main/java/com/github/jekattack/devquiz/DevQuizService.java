@@ -24,4 +24,8 @@ public class DevQuizService {
     public Question postQuestion(Question newQuestion) {
         return questionRepository.save(newQuestion);
     }
+
+    public void deleteQuestionById(String id) {
+        questionRepository.deleteById(id);
+    }
 }

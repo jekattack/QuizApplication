@@ -21,7 +21,7 @@ public class DevQuizController {
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Question> getQuestionById(@PathVariable String id){
         return ResponseEntity.of(devQuizService.getQuestionById(id));
     }
@@ -32,6 +32,11 @@ public class DevQuizController {
         return devQuizService.postQuestion(newQuestion);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteQuestion(@PathVariable String id){
+        devQuizService.deleteQuestionById(id);
+    }
 
 
 
